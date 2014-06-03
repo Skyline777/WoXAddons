@@ -1,0 +1,11 @@
+## Interface: 30300
+## Title: |r|cFF0099FF[SGC]|r Addon Pack
+## Notes: Addon pack for Steel Gamers Community Custom Private Server
+## Notes-esES: Conjunto de Addons para el servidor Custom Privado de Steel Gamers Community.
+## Notes-esMX: Conjunto de Addons para el servidor Custom Privado de Steel Gamers Community.
+## Version: 0.0.1
+## Author: Skyline777HD
+## DefaultState: enabled
+
+SGCAddons.xml
+SGCAddons.lua
