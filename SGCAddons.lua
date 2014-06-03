@@ -11,19 +11,29 @@ function SetZoneText(showZone)
     if ( isSubZonePvP ) then
         pvpTextString = PVPArenaTextString;
     end
- 
+    currentLocale = GetLocale();
+    currentLocaleSupported = true;
+    if (currentLocale == "esES" or currentLocale == "esMX") then
+        HIGHSec = "Zona de Seguridad ALTA";
+        LOWSec = "Zona de Seguridad BAJA";
+        NULLSec = "Zona de Seguridad NULA";
+    else
+        HIGHSec = "HIGH Security Zone";
+        LOWSec = "LOW Security Zone";
+        NULLSec = "NULL Security Zone";
+    end
     if ( areaId == 322 or areaId == 10 or areaId == 363 or areaId == 242 or areaId == 42 or areaId == 382 or areaId == 5 or areaId == 302 or areaId == 31 ) then
-        pvpTextString:SetFormattedText("(Zona de seguridad ALTA)");
+        pvpTextString:SetFormattedText("("..HIGHSec..")");
         pvpTextString:SetTextColor(0, 1, 0);
         ZoneTextString:SetTextColor(0, 1, 0);
         SubZoneTextString:SetTextColor(0, 1, 0);
     elseif ( areaId == 44 or areaId == 182 or areaId == 43 or areaId == 12 ) then
-        pvpTextString:SetText("(Zona de seguridad BAJA)");
+        pvpTextString:SetText("("..LOWSec..")");
         pvpTextString:SetTextColor(1, 0.6, 0.2);
         ZoneTextString:SetTextColor(1, 0.6, 0.2);
         SubZoneTextString:SetTextColor(1, 0.6, 0.2);
     elseif ( areaId == 82 or areaId == 102 or areaId == 183 or areaId == 282 or areaId == 142 ) then
-        pvpTextString:SetFormattedText("(Zona de seguridad NULA)");
+        pvpTextString:SetFormattedText("("..NULLSec..")");
         pvpTextString:SetTextColor(1, 0, 0);
         ZoneTextString:SetTextColor(1, 0, 0);
         SubZoneTextString:SetTextColor(1, 0, 0);
