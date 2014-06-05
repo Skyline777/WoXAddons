@@ -22,23 +22,41 @@ function SetZoneText(showZone)
         LOWSec = "LOW Security Zone";
         NULLSec = "NULL Security Zone";
     end
-    if ( areaId == 322 or areaId == 10 or areaId == 363 or areaId == 242 or areaId == 42 or areaId == 382 or areaId == 5 or areaId == 302 or areaId == 31 ) then
+    if (   areaId == 322    -- Orgrimmar
+        or areaId == 10     -- Mulgore
+        or areaId == 363    -- Thunderbluff
+        or areaId == 242    -- Moonglade
+        or areaId == 42     -- Teldrassil
+        or areaId == 382    -- Darnassus
+        or areaId == 5      -- Durotar
+        or areaId == 302    -- Stormwind
+        or areaId == 31     -- Elwynn Forest
+       ) then
         pvpTextString:SetFormattedText("("..HIGHSec..")");
-        pvpTextString:SetTextColor(0, 1, 0);
+        pvpTextString:SetTextColor(0, 1, 0); -- Green
         ZoneTextString:SetTextColor(0, 1, 0);
         SubZoneTextString:SetTextColor(0, 1, 0);
-    elseif ( areaId == 44 or areaId == 182 or areaId == 43 or areaId == 12 ) then
+    elseif (    areaId == 44    -- Ashenvale
+             or areaId == 182   -- Azshara
+             or areaId == 43    -- Dark Shore
+             or areaId == 12    -- The Barrens
+           ) then
         pvpTextString:SetText("("..LOWSec..")");
-        pvpTextString:SetTextColor(1, 0.6, 0.2);
+        pvpTextString:SetTextColor(1, 0.6, 0.2); -- Orange
         ZoneTextString:SetTextColor(1, 0.6, 0.2);
         SubZoneTextString:SetTextColor(1, 0.6, 0.2);
-    elseif ( areaId == 82 or areaId == 102 or areaId == 183 or areaId == 282 or areaId == 142 ) then
+    elseif (    areaId == 82    -- Stonetalon Mountains
+             or areaId == 102   -- Desolace
+             or areaId == 183   -- Fellwood
+             or areaId == 282   -- Winterspring
+             or areaId == 142   -- Dustwallow
+           ) then
         pvpTextString:SetFormattedText("("..NULLSec..")");
-        pvpTextString:SetTextColor(1, 0, 0);
+        pvpTextString:SetTextColor(1, 0, 0); -- Red
         ZoneTextString:SetTextColor(1, 0, 0);
         SubZoneTextString:SetTextColor(1, 0, 0);
     else
-        ZoneTextString:SetTextColor(1, 0.9294, 0.7607);
+        ZoneTextString:SetTextColor(1, 0.9294, 0.7607); -- White
         SubZoneTextString:SetTextColor(1, 0.9294, 0.7607);
     end
 
