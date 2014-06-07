@@ -106,7 +106,23 @@ function ZoneText_OnEvent(self, event, ...)
         if (self:IsShown()) then
             showZoneText = true;
         end
-        SubZoneTextString:SetText( subzoneText );
+        areaId = GetCurrentMapAreaID();
+        if (    areaId == 82    -- Stonetalon Mountains
+             or areaId == 102   -- Desolace
+             or areaId == 183   -- Fellwood
+             or areaId == 282   -- Winterspring
+             or areaId == 142   -- Dustwallow
+           ) then -- SubZone Capturable esES / esMX
+            currentLocale = GetLocale();
+            currentLocaleSupported = true;
+            if (currentLocale == "esES" or currentLocale == "esMX") then
+                SubZoneTextString:SetText( subzoneText.."\n(Zona Conquistable)" );
+            else
+                SubZoneTextString:SetText( subzoneText.."\n(Conquerable Area)" );
+            end
+        else
+            SubZoneTextString:SetText( subzoneText );
+        end
         SetZoneText( showZoneText );
         if ( not LevelUpDisplay:IsShown() ) then
             FadingFrame_Show( SubZoneTextFrame );
