@@ -1,0 +1,13 @@
+## Interface: 30300
+## Title: |r|cFF0099FF[WoX]|r Addon Pack
+## Notes: Addon pack for Warlords of Xoroth Custom Private Server
+## Notes-esES: Conjunto de Addons para el servidor Custom Privado de Warlords of Xoroth.
+## Notes-esMX: Conjunto de Addons para el servidor Custom Privado de Warlords of Xoroth.
+## Version: 0.2.0
+## Author: Skyline777HD
+## DefaultState: enabled
+
+#WoXAddons_DB.lua
+
+WoXAddons.lua
+WoXAddons.xml
