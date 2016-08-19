@@ -47,8 +47,8 @@ function SetZoneText(showZone)
              or areaId == 62    -- Thousand Needles
              or areaId == 162   -- Tanaris
              or areaId == 82    -- Stonetalon Mountains
-             or areaId == 14    -- Wailing Caverns (Barrens) // Blackfathom Deeps (Ashenvale)
              or areaId == 38    -- Stranglethorn Vale
+             or areaId == 14    -- Wailing Caverns (Barrens) // Blackfathom Deeps (Ashenvale)
            ) then
         pvpTextString:SetText("("..LOWSec..")");
         pvpTextString:SetTextColor(1, 0.6, 0.2); -- Orange
