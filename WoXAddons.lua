@@ -47,7 +47,8 @@ function SetZoneText(showZone)
              or areaId == 62    -- Thousand Needles
              or areaId == 162   -- Tanaris
              or areaId == 82    -- Stonetalon Mountains
-             or areaId == 14    -- Wailing Caverns
+             or areaId == 14    -- Wailing Caverns (Barrens) // Blackfathom Deeps (Ashenvale)
+             or areaId == 38    -- Stranglethorn Vale
            ) then
         pvpTextString:SetText("("..LOWSec..")");
         pvpTextString:SetTextColor(1, 0.6, 0.2); -- Orange
@@ -55,11 +56,9 @@ function SetZoneText(showZone)
         SubZoneTextString:SetTextColor(1, 0.6, 0.2);
     elseif (    areaId == 102   -- Desolace
              or areaId == 183   -- Felwood
-             or areaId == 282   -- Winterspring ??
              or areaId == 142   -- Dustwallow Marsh
              or areaId == 182   -- Azshara
              or areaId == 122   -- Feralas
-             or areaId == 202   -- Un Goro ??
            ) then
         pvpTextString:SetFormattedText("("..NULLSec..")");
         pvpTextString:SetTextColor(1, 0, 0); -- Red
@@ -85,61 +84,37 @@ function ZoneText_OnLoad(self)
 end
  
 function ZoneText_OnEvent(self, event, ...)
-    local showZoneText = false; 
-    local zoneText = GetZoneText();
-    if ( (zoneText ~= self.zoneText) or (event == "ZONE_CHANGED_NEW_AREA") ) then
-        self.zoneText = zoneText;
-        ZoneTextString:SetText( zoneText );
-        showZoneText = true;
-        SetZoneText( showZoneText );
-        if ( not LevelUpDisplay:IsShown() ) then
-            FadingFrame_Show( self );
-        end
-    end
-     
-    local subzoneText = GetSubZoneText();
-    if ( subzoneText == "" and not showZoneText) then
-        subzoneText = zoneText;
-    end
-    SubZoneTextString:SetText( "" );
- 
-    if ( subzoneText == zoneText ) then
-        showZoneText = false;
-        if ( not self:IsShown() ) then
-            SubZoneTextString:SetText( subzoneText );
-            SetZoneText( showZoneText );
-            if ( not LevelUpDisplay:IsShown() ) then
-                FadingFrame_Show( SubZoneTextFrame );
-            end
-        end
-    else
-        if (self:IsShown()) then
-            showZoneText = true;
-        end
-        areaId = GetCurrentMapAreaID();
-        if (    areaId == 102   -- Desolace
-             or areaId == 183   -- Felwood
-             or areaId == 282   -- Winterspring ??
-             or areaId == 142   -- Dustwallow Marsh
-             or areaId == 182   -- Azshara
-             or areaId == 122   -- Feralas
-             or areaId == 202   -- Un Goro ??
-           ) then -- SubZone Capturable esES / esMX
-            currentLocale = GetLocale();
-            currentLocaleSupported = true;
-            if (currentLocale == "esES" or currentLocale == "esMX") then
-                SubZoneTextString:SetText( subzoneText.."\n(Zona Conquistable)" );
-            else
-                SubZoneTextString:SetText( subzoneText.."\n(Conquerable Area)" );
-            end
-        else
-            SubZoneTextString:SetText( subzoneText );
-        end
-        SetZoneText( showZoneText );
-        if ( not LevelUpDisplay:IsShown() ) then
-            FadingFrame_Show( SubZoneTextFrame );
-        end
-    end
+	local showZoneText = false;	
+	local zoneText = GetZoneText();
+	if ( (zoneText ~= self.zoneText) or (event == "ZONE_CHANGED_NEW_AREA") ) then
+		self.zoneText = zoneText;
+		ZoneTextString:SetText( zoneText );
+		showZoneText = true;
+		SetZoneText( showZoneText );
+		FadingFrame_Show( self );
+	end
+	
+	local subzoneText = GetSubZoneText();
+	if ( subzoneText == "" and not showZoneText) then
+		subzoneText = zoneText;
+	end
+	SubZoneTextString:SetText( "" );
+
+	if ( subzoneText == zoneText ) then
+		showZoneText = false;
+		if ( not self:IsShown() ) then
+			SubZoneTextString:SetText( subzoneText );
+			SetZoneText( showZoneText );
+			FadingFrame_Show( SubZoneTextFrame );
+		end
+	else
+		if (self:IsShown()) then
+			showZoneText = true;
+		end
+		SubZoneTextString:SetText( subzoneText );
+		SetZoneText( showZoneText );
+		FadingFrame_Show( SubZoneTextFrame );
+	end
 end
  
 function SubZoneText_OnLoad(self)
