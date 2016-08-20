@@ -31,7 +31,7 @@ function SetZoneText(showZone)
         or areaId == 5      -- Durotar
         or areaId == 302    -- Stormwind
         or areaId == 31     -- Elwynn Forest
-        or areaId == 342    -- Iron Forge
+        or areaId == 342    -- Ironforge
         or areaId == 21     -- Tirisfal Glades
         or areaId == 15     -- Deeprun Tram
         or areaId == 28     -- Dun Morogh
