@@ -2,6 +2,7 @@ ZoneFadeInDuration = 0.5;
 ZoneHoldDuration = 1;
 ZoneFadeOutDuration = 2.0;
 ZonePVPType = nil;
+playerFactionWoX = { UnitFactionGroup("player") }
  
 function SetZoneText(showZone)
     PVPArenaTextString:SetText("");
@@ -22,44 +23,111 @@ function SetZoneText(showZone)
         LOWSec = "DANGEROUS Zone";
         NULLSec = "HIGHLY DANGEROUS Zone";
     end
-    if (   areaId == 322    -- Orgrimmar
-        or areaId == 10     -- Mulgore
-        or areaId == 363    -- Thunderbluff
-        or areaId == 242    -- Moonglade
-        or areaId == 42     -- Teldrassil
-        or areaId == 382    -- Darnassus
-        or areaId == 5      -- Durotar
-        or areaId == 302    -- Stormwind
-        or areaId == 31     -- Elwynn Forest
-        or areaId == 342    -- Ironforge
-        or areaId == 21     -- Tirisfal Glades
-        or areaId == 15     -- Deeprun Tram
-        or areaId == 28     -- Dun Morogh
-        or areaId == 383    -- Undercity
-       ) then
+	if (    playerFactionWoX[1] == "Alliance"
+        and areaId == 242    -- Moonglade
+         or playerFactionWoX[1] == "Alliance"
+        and areaId == 28     -- Dun Morogh
+         or playerFactionWoX[1] == "Alliance"
+        and  areaId == 15     -- Deeprun Tram
+         or playerFactionWoX[1] == "Alliance"
+        and  areaId == 342    -- Iron Forge
+         or playerFactionWoX[1] == "Alliance"
+        and  areaId == 31     -- Elwynn Forest
+         or playerFactionWoX[1] == "Alliance"
+        and  areaId == 302    -- Stormwind
+         or playerFactionWoX[1] == "Alliance"
+        and  areaId == 42     -- Teldrassil
+         or playerFactionWoX[1] == "Alliance"
+        and  areaId == 382    -- Darnassus
+     ) then
+       pvpTextString:SetFormattedText("("..HIGHSec..")");
+       pvpTextString:SetTextColor(0, 1, 0); -- Green
+       ZoneTextString:SetTextColor(0, 1, 0);
+       SubZoneTextString:SetTextColor(0, 1, 0);
+	elseif ( playerFactionWoX[1] ~= "Alliance" -- Horde
+         and areaId == 242    -- Moonglade
+          or playerFactionWoX[1] ~= "Alliance"
+		 and areaId == 322    -- Orgrimmar
+          or playerFactionWoX[1] ~= "Alliance"
+         and areaId == 10     -- Mulgore
+          or playerFactionWoX[1] ~= "Alliance"
+         and areaId == 363    -- Thunderbluff
+          or playerFactionWoX[1] ~= "Alliance"
+         and areaId == 383    -- Undercity
+          or playerFactionWoX[1] ~= "Alliance"
+         and areaId == 21     -- Tirisfal Glades
+          or playerFactionWoX[1] ~= "Alliance"
+         and areaId == 5      -- Durotar
+      ) then
         pvpTextString:SetFormattedText("("..HIGHSec..")");
         pvpTextString:SetTextColor(0, 1, 0); -- Green
         ZoneTextString:SetTextColor(0, 1, 0);
         SubZoneTextString:SetTextColor(0, 1, 0);
-    elseif (    areaId == 44    -- Ashenvale
-             or areaId == 43    -- Dark Shore
-             or areaId == 12    -- The Barrens
-             or areaId == 62    -- Thousand Needles
-             or areaId == 162   -- Tanaris
-             or areaId == 82    -- Stonetalon Mountains
-             or areaId == 38    -- Stranglethorn Vale
-             or areaId == 14    -- Wailing Caverns (Barrens) // Blackfathom Deeps (Ashenvale)
-           ) then
+    elseif ( areaId == 44    -- Ashenvale
+          or areaId == 43    -- Dark Shore
+          or areaId == 12    -- The Barrens
+          or areaId == 62    -- Thousand Needles
+          or areaId == 162   -- Tanaris
+          or areaId == 82    -- Stonetalon Mountains
+          or areaId == 38    -- Stranglethorn Vale
+          or areaId == 14    -- Wailing Caverns (Barrens) // Blackfathom Deeps (Ashenvale)
+      ) then
         pvpTextString:SetText("("..LOWSec..")");
         pvpTextString:SetTextColor(1, 0.6, 0.2); -- Orange
         ZoneTextString:SetTextColor(1, 0.6, 0.2);
         SubZoneTextString:SetTextColor(1, 0.6, 0.2);
-    elseif (    areaId == 102   -- Desolace
-             or areaId == 183   -- Felwood
-             or areaId == 142   -- Dustwallow Marsh
-             or areaId == 182   -- Azshara
-             or areaId == 122   -- Feralas
-           ) then
+    elseif ( playerFactionWoX[1] == "Alliance"
+         and areaId == 102   -- Desolace
+          or playerFactionWoX[1] == "Alliance"
+         and areaId == 183   -- Felwood
+          or playerFactionWoX[1] == "Alliance"
+         and areaId == 142   -- Dustwallow Marsh
+          or playerFactionWoX[1] == "Alliance"
+         and areaId == 182   -- Azshara
+          or playerFactionWoX[1] == "Alliance"
+         and areaId == 122   -- Feralas
+          or playerFactionWoX[1] == "Alliance"
+         and areaId == 322   -- Orgrimmar
+          or playerFactionWoX[1] == "Alliance"
+         and areaId == 10    -- Mulgore
+          or playerFactionWoX[1] == "Alliance"
+         and areaId == 363   -- Thunderbluff
+          or playerFactionWoX[1] == "Alliance"
+         and areaId == 383   -- Undercity
+          or playerFactionWoX[1] == "Alliance"
+         and areaId == 21    -- Tirisfal Glades
+          or playerFactionWoX[1] == "Alliance"
+         and areaId == 5     -- Durotar
+      ) then
+        pvpTextString:SetFormattedText("("..NULLSec..")");
+        pvpTextString:SetTextColor(1, 0, 0); -- Red
+        ZoneTextString:SetTextColor(1, 0, 0);
+        SubZoneTextString:SetTextColor(1, 0, 0);
+	elseif ( playerFactionWoX[1] ~= "Alliance" -- Horde
+         and areaId == 102   -- Desolace
+          or playerFactionWoX[1] ~= "Alliance"
+         and areaId == 183   -- Felwood
+          or playerFactionWoX[1] ~= "Alliance"
+         and areaId == 142   -- Dustwallow Marsh
+          or playerFactionWoX[1] ~= "Alliance"
+         and areaId == 182   -- Azshara
+          or playerFactionWoX[1] ~= "Alliance"
+         and areaId == 122   -- Feralas
+          or playerFactionWoX[1] ~= "Alliance"
+         and areaId == 28    -- Dun Morogh
+          or playerFactionWoX[1] ~= "Alliance"
+         and areaId == 15    -- Deeprun Tram
+          or playerFactionWoX[1] ~= "Alliance"
+         and areaId == 342   -- Iron Forge
+          or playerFactionWoX[1] ~= "Alliance"
+         and areaId == 31    -- Elwynn Forest
+          or playerFactionWoX[1] ~= "Alliance"
+         and areaId == 302   -- Stormwind
+          or playerFactionWoX[1] ~= "Alliance"
+         and areaId == 42    -- Teldrassil
+          or playerFactionWoX[1] ~= "Alliance"
+         and areaId == 382   -- Darnassus
+	  ) then
         pvpTextString:SetFormattedText("("..NULLSec..")");
         pvpTextString:SetTextColor(1, 0, 0); -- Red
         ZoneTextString:SetTextColor(1, 0, 0);
