@@ -71,6 +71,10 @@ function SetZoneText(showZone)
           or areaId == 82    -- Stonetalon Mountains
           or areaId == 38    -- Stranglethorn Vale
           or areaId == 14    -- Wailing Caverns (Barrens) // Blackfathom Deeps (Ashenvale)
+		  or areaId == 40    -- Westfall
+		  or areaId == 35    -- Duskwood
+		  or areaId == 22    -- Silverpine Forest
+		  or areaId == 25    -- Hillsbdrad Foothills
       ) then
         pvpTextString:SetText("("..LOWSec..")");
         pvpTextString:SetTextColor(1, 0.6, 0.2); -- Orange
@@ -86,6 +90,10 @@ function SetZoneText(showZone)
          and areaId == 182   -- Azshara
           or playerFactionWoX[1] == "Alliance"
          and areaId == 122   -- Feralas
+          or playerFactionWoX[1] == "Alliance"
+         and areaId == 33    -- Deadwind Pass
+          or playerFactionWoX[1] == "Alliance"
+         and areaId == 39    -- Swamp of Sorrows
           or playerFactionWoX[1] == "Alliance"
          and areaId == 322   -- Orgrimmar
           or playerFactionWoX[1] == "Alliance"
@@ -113,6 +121,10 @@ function SetZoneText(showZone)
          and areaId == 182   -- Azshara
           or playerFactionWoX[1] ~= "Alliance"
          and areaId == 122   -- Feralas
+          or playerFactionWoX[1] ~= "Alliance"
+         and areaId == 33    -- Deadwind Pass
+          or playerFactionWoX[1] ~= "Alliance"
+         and areaId == 39    -- Swamp of Sorrows
           or playerFactionWoX[1] ~= "Alliance"
          and areaId == 28    -- Dun Morogh
           or playerFactionWoX[1] ~= "Alliance"
