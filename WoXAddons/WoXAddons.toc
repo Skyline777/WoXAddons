@@ -3,7 +3,7 @@
 ## Notes: Addon pack for Warlords of Xoroth Custom Private Server
 ## Notes-esES: Conjunto de Addons para el servidor Custom Privado de Warlords of Xoroth.
 ## Notes-esMX: Conjunto de Addons para el servidor Custom Privado de Warlords of Xoroth.
-## Version: 1.1.0
+## Version: 1.2.0
 ## Author: Skyline777HD
 ## DefaultState: enabled
 
