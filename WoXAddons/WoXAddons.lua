@@ -2,7 +2,6 @@ ZoneFadeInDuration  = 0.5;
 ZoneHoldDuration    = 1;
 ZoneFadeOutDuration = 2.0;
 ZonePVPType = nil;
-playerFactionWoX = { UnitFactionGroup("player") };
 
 function SetZoneText(showZone)
     PVPArenaTextString:SetText("");
@@ -34,172 +33,57 @@ function SetZoneText(showZone)
         ScarletMon = "Scarlet Monastery";
         DeadMines  = "The Deadmines";
     end
-    if ( playerFactionWoX[1] == "Horde"
-         and zoneName == ScarletMon
-      ) then
-        pvpTextString:SetFormattedText("("..HIGHSec..")");
-        pvpTextString:SetTextColor(0, 1, 0); -- Green
-        ZoneTextString:SetTextColor(0, 1, 0);
-        SubZoneTextString:SetTextColor(0, 1, 0);
-    elseif ( playerFactionWoX[1] == "Alliance"
-         and zoneName == "Scholomance"
-          or playerFactionWoX[1] == "Alliance"
-         and zoneName == DireMaul
-          or playerFactionWoX[1] == "Alliance"
-         and zoneName == ScarabWall
-          or playerFactionWoX[1] == "Alliance"
-         and zoneName == "Stratholme"
-          or playerFactionWoX[1] == "Alliance"
-         and zoneName == ScarletMon
-          or playerFactionWoX[1] == "Alliance"
-         and areaId == 183   -- Felwood
-          or playerFactionWoX[1] == "Alliance"
-         and areaId == 182   -- Azshara
-          or playerFactionWoX[1] == "Alliance"
-         and areaId == 122   -- Feralas
-          or playerFactionWoX[1] == "Alliance"
-         and areaId == 33    -- Deadwind Pass
-          or playerFactionWoX[1] == "Alliance"
-         and areaId == 322   -- Orgrimmar
-          or playerFactionWoX[1] == "Alliance"
-         and areaId == 10    -- Mulgore
-          or playerFactionWoX[1] == "Alliance"
-         and areaId == 363   -- Thunderbluff
-          or playerFactionWoX[1] == "Alliance"
-         and areaId == 383   -- Undercity
-          or playerFactionWoX[1] == "Alliance"
-         and areaId == 21    -- Tirisfal Glades
-          or playerFactionWoX[1] == "Alliance"
-         and areaId == 5     -- Durotar
-		  or playerFactionWoX[1] == "Alliance"
-         and areaId == 282   -- Winterspring
-		  or playerFactionWoX[1] == "Alliance"
-         and areaId == 262   -- Silithus
-		  or playerFactionWoX[1] == "Alliance"
-         and areaId == 24    -- Eastern Plaguelands
-		  or playerFactionWoX[1] == "Alliance"
-         and areaId == 23    -- Western Plaguelands
-		  or playerFactionWoX[1] == "Alliance"
-         and areaId == 27    -- The Hinterlands
-		  or playerFactionWoX[1] == "Alliance"
-         and areaId == 29    -- Searing Gorge
-		  or playerFactionWoX[1] == "Alliance"
-         and areaId == 30    -- Burning Steppes
-		  or playerFactionWoX[1] == "Alliance"
-         and areaId == 20    -- Blasted Lands
-          or playerFactionWoX[1] == "Alliance"
-         and areaId == 38    -- Stranglethorn Vale
-      ) then
-        pvpTextString:SetFormattedText("("..NULLSec..")");
-        pvpTextString:SetTextColor(1, 0, 0); -- Red
-        ZoneTextString:SetTextColor(1, 0, 0);
-        SubZoneTextString:SetTextColor(1, 0, 0);
-	elseif ( playerFactionWoX[1] == "Horde"
-         and zoneName == "Scholomance"
-          or playerFactionWoX[1] == "Horde"
-         and zoneName == DireMaul
-          or playerFactionWoX[1] == "Horde"
-         and zoneName == ScarabWall
-          or playerFactionWoX[1] == "Horde"
-         and zoneName == "Stratholme"
-          or playerFactionWoX[1] == "Horde"
-         and zoneName == "Gnomeregan"
-          or playerFactionWoX[1] == "Horde"
-         and areaId == 183   -- Felwood
-          or playerFactionWoX[1] == "Horde"
-         and areaId == 182   -- Azshara
-          or playerFactionWoX[1] == "Horde"
-         and areaId == 122   -- Feralas
-          or playerFactionWoX[1] == "Horde"
-         and areaId == 33    -- Deadwind Pass
-          or playerFactionWoX[1] == "Horde"
-         and areaId == 28    -- Dun Morogh
-          or playerFactionWoX[1] == "Horde"
-         and areaId == 15    -- Deeprun Tram
-          or playerFactionWoX[1] == "Horde"
-         and areaId == 342   -- Iron Forge
-          or playerFactionWoX[1] == "Horde"
-         and areaId == 31    -- Elwynn Forest
-          or playerFactionWoX[1] == "Horde"
-         and areaId == 302   -- Stormwind
-          or playerFactionWoX[1] == "Horde"
-         and areaId == 42    -- Teldrassil
-          or playerFactionWoX[1] == "Horde"
-         and areaId == 382   -- Darnassus
-		  or playerFactionWoX[1] == "Horde"
-         and areaId == 282   -- Winterspring
-		  or playerFactionWoX[1] == "Horde"
-         and areaId == 262   -- Silithus
-		  or playerFactionWoX[1] == "Horde"
-         and areaId == 24    -- Eastern Plaguelands
-		  or playerFactionWoX[1] == "Horde"
-         and areaId == 23    -- Western Plaguelands
-		  or playerFactionWoX[1] == "Horde"
-         and areaId == 27    -- The Hinterlands
-		  or playerFactionWoX[1] == "Horde"
-         and areaId == 29    -- Searing Gorge
-		  or playerFactionWoX[1] == "Horde"
-         and areaId == 30    -- Burning Steppes
-		  or playerFactionWoX[1] == "Horde"
-         and areaId == 20    -- Blasted Lands
-          or playerFactionWoX[1] == "Horde"
-         and areaId == 38    -- Stranglethorn Vale
-	  ) then
-        pvpTextString:SetFormattedText("("..NULLSec..")");
-        pvpTextString:SetTextColor(1, 0, 0); -- Red
-        ZoneTextString:SetTextColor(1, 0, 0);
-        SubZoneTextString:SetTextColor(1, 0, 0);
-    elseif ( zoneName == "Uldaman"
+    if (     zoneName == "Uldaman"
           or zoneName == DeadMines
+          or areaId == 35   -- Duskwood
       ) then
         pvpTextString:SetText("("..LOWSec..")");
         pvpTextString:SetTextColor(1, 0.6, 0.2); -- Orange
         ZoneTextString:SetTextColor(1, 0.6, 0.2);
         SubZoneTextString:SetTextColor(1, 0.6, 0.2);
-    elseif ( playerFactionWoX[1] == "Alliance"
-         and zoneName == "Gnomeregan"
-          or playerFactionWoX[1] == "Alliance"
-         and areaId == 242    -- Moonglade
-          or playerFactionWoX[1] == "Alliance"
-         and areaId == 28     -- Dun Morogh
-          or playerFactionWoX[1] == "Alliance"
-         and areaId == 15     -- Deeprun Tram
-          or playerFactionWoX[1] == "Alliance"
-         and areaId == 342    -- Iron Forge
-          or playerFactionWoX[1] == "Alliance"
-         and areaId == 31     -- Elwynn Forest
-          or playerFactionWoX[1] == "Alliance"
-         and areaId == 302    -- Stormwind
-          or playerFactionWoX[1] == "Alliance"
-         and areaId == 42     -- Teldrassil
-          or playerFactionWoX[1] == "Alliance"
-         and areaId == 382    -- Darnassus
+    elseif ( zoneName == "Gnomeregan"
+          or zoneName == ScarletMon
+          or areaId == 242    -- Moonglade
+          or areaId == 28     -- Dun Morogh
+          or areaId == 15     -- Deeprun Tram
+          or areaId == 342    -- Iron Forge
+          or areaId == 31     -- Elwynn Forest
+          or areaId == 302    -- Stormwind
+          or areaId == 42     -- Teldrassil
+          or areaId == 382    -- Darnassus
+          or areaId == 322    -- Orgrimmar
+          or areaId == 10     -- Mulgore
+          or areaId == 363    -- Thunderbluff
+          or areaId == 383    -- Undercity
+          or areaId == 21     -- Tirisfal Glades
+          or areaId == 5      -- Durotar
       ) then
        pvpTextString:SetFormattedText("("..HIGHSec..")");
        pvpTextString:SetTextColor(0, 1, 0); -- Green
        ZoneTextString:SetTextColor(0, 1, 0);
        SubZoneTextString:SetTextColor(0, 1, 0);
-	elseif ( playerFactionWoX[1] == "Horde"
-         and zoneName == ScarletMon
-          or playerFactionWoX[1] == "Horde"
-         and areaId == 242    -- Moonglade
-          or playerFactionWoX[1] == "Horde"
-		 and areaId == 322    -- Orgrimmar
-          or playerFactionWoX[1] == "Horde"
-         and areaId == 10     -- Mulgore
-          or playerFactionWoX[1] == "Horde"
-         and areaId == 363    -- Thunderbluff
-          or playerFactionWoX[1] == "Horde"
-         and areaId == 383    -- Undercity
-          or playerFactionWoX[1] == "Horde"
-         and areaId == 21     -- Tirisfal Glades
-          or playerFactionWoX[1] == "Horde"
-         and areaId == 5      -- Durotar
+    elseif ( zoneName == "Scholomance"
+          or zoneName == DireMaul
+          or zoneName == ScarabWall
+          or zoneName == "Stratholme"
+          or areaId == 183   -- Felwood
+          or areaId == 182   -- Azshara
+          or areaId == 122   -- Feralas
+          or areaId == 33    -- Deadwind Pass
+          or areaId == 282   -- Winterspring
+          or areaId == 262   -- Silithus
+          or areaId == 24    -- Eastern Plaguelands
+          or areaId == 23    -- Western Plaguelands
+          or areaId == 27    -- The Hinterlands
+          or areaId == 29    -- Searing Gorge
+          or areaId == 30    -- Burning Steppes
+          or areaId == 20    -- Blasted Lands
+          or areaId == 38    -- Stranglethorn Vale
       ) then
-        pvpTextString:SetFormattedText("("..HIGHSec..")");
-        pvpTextString:SetTextColor(0, 1, 0); -- Green
-        ZoneTextString:SetTextColor(0, 1, 0);
-        SubZoneTextString:SetTextColor(0, 1, 0);
+        pvpTextString:SetFormattedText("("..NULLSec..")");
+        pvpTextString:SetTextColor(1, 0, 0); -- Red
+        ZoneTextString:SetTextColor(1, 0, 0);
+        SubZoneTextString:SetTextColor(1, 0, 0);
     else
         pvpTextString:SetText("("..LOWSec..")");
         pvpTextString:SetTextColor(1, 0.6, 0.2); -- Orange
